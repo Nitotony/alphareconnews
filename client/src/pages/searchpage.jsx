@@ -53,11 +53,22 @@ export default function SearchPage() {
 
   if (loading) {
     return (
-     <div>
-        <div>
-          <form action="">
-            <input type="text" name="" id="texted" onChange={handleChange} value={formData.texted} />
-            <input type="date" name="" id="date" onChange={handleChange} />
+      <div className="container mx-auto px-4">
+        <div className="bg-red-700">
+          <form action="" className="mx-20">
+            <input
+              type="text"
+              className="m-2"
+              id="texted"
+              onChange={handleChange}
+              value={formData.texted}
+            />
+            <input
+              type="date"
+              className="m-2"
+              id="date"
+              onChange={handleChange}
+            />
             <button onClick={getsearchedNewsData}>Search</button>
           </form>
         </div>
@@ -70,18 +81,23 @@ export default function SearchPage() {
   }
 
   return (
-    <div>
+    <div className="container mx-auto px-4">
       <div>
-        <form action="">
+        <form className="bg-red-700">
           <input
             type="text"
-            name=""
+            className="m-2"
             id="texted"
             onChange={handleChange}
             value={formData.texted}
           />
-          <input type="date" name="" id="date" onChange={handleChange} />
-          <button onClick={getsearchedNewsData}>Search</button>
+          <input
+            type="date"
+            className="m-2"
+            id="date"
+            onChange={handleChange}
+          />
+          <button onSubmit={getsearchedNewsData}>Search</button>
         </form>
       </div>
       <section className="popular">

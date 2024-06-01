@@ -59,9 +59,7 @@ const Popular = () => {
 
   
   return (
-    <div>
-    
-
+    <div className="container mx-auto px-4">
       <section className="popular">
         <div className="content">
           {newsData?.map((newss, index) => (
@@ -84,16 +82,15 @@ const Popular = () => {
                   <div className="date flex items-center">
                     <i className="fas fa-calendar-days mr-1"></i>
                     <label>{newss.publishedAt}</label>
-                    
-                      <button
-                        className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-8 rounded"
-                        onClick={()=>{
-                          navigate("spec-news",{state:{data:newss}});
-                        }}
-                      >
-                        lol
-                      </button>
-                    
+
+                    <button
+                      className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-8 rounded"
+                      onClick={() => {
+                        navigate("spec-news", { state: { data: newss } });
+                      }}
+                    >
+                      lol
+                    </button>
                   </div>
                   <div className="comment flex items-center border-t border-gray-300 pt-2">
                     <i className="fas fa-comments mr-1"></i>
