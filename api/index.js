@@ -18,6 +18,16 @@ app.use(express.json());
 app.use(allowCrossDomain);
 app.use("/server/news", newsRoutes);
 
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+  return res.status(statusCode).json({
+    success: false,
+    message,
+    statusCode,
+  });
+});
+
 
 
 
@@ -34,3 +44,10 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+import Userpref from './models/userpref.js'
+import User from './models/usermodel.js'
+
+
+Userpref()
+User()
