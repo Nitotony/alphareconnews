@@ -2,27 +2,29 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import{signInStart,
+import {
+  signInStart,
   signInFailure,
-  signInSuccess,} from "../redux/user/userSlice"
+  signInSuccess,
+} from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
 
-export default function Signin() {
-  const dispatch=useDispatch();
+export default function Signup() {
+  const dispatch = useDispatch();
 
-   const [formData, setFormData] = useState({});
-   const handleChange = (e) => {
-       console.log(formData);
-       setFormData({ ...formData, [e.target.id]: e.target.value });
-     };
+  const [formData, setFormData] = useState({});
+  const handleChange = (e) => {
+    console.log(formData);
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
 
-  const handleSubmit= async(e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("boom");
     try {
       dispatch(signInStart());
       console.log("boom");
-      const res = await fetch("http://localhost:3001/server/auth/user-signin", {
+      const res = await fetch("http://localhost:3001/server/auth/user-signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,8 +42,6 @@ export default function Signin() {
     } catch (error) {
       dispatch(signInFailure(error));
     }
-    
-    
   };
 
   return (
@@ -53,7 +53,7 @@ export default function Signin() {
           alt="Your Company"
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          Sign in to your account
+          Sign up to your account
         </h2>
       </div>
 
@@ -87,7 +87,6 @@ export default function Signin() {
               >
                 Password
               </label>
-              
             </div>
             <div className="mt-2">
               <input
@@ -107,12 +106,10 @@ export default function Signin() {
               type="submit"
               className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              Sign in
+              Sign up
             </button>
           </div>
         </form>
-
-        
       </div>
     </div>
   );

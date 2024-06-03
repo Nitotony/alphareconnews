@@ -2,7 +2,9 @@ import mongoose from "mongoose";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import newsRoutes from "./routes/news.routes.js"
+import newsRoutes from "./routes/news.routes.js";
+import authRoutes from "./routes/client.routes.js"
+
 dotenv.config();
 
 const app= express();
@@ -17,6 +19,7 @@ var allowCrossDomain = function (req, res, next) {
 app.use(express.json());
 app.use(allowCrossDomain);
 app.use("/server/news", newsRoutes);
+app.use("/server/auth",authRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
