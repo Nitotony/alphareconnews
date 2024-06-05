@@ -72,6 +72,7 @@ export default function SearchPage() {
             <button onClick={getsearchedNewsData}>Search</button>
           </form>
         </div>
+        <h1>enter a serch item</h1>
       </div>
     );
   }

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 
 export default function Signin() {
   const dispatch=useDispatch();
+  const navigate=useNavigate();
 
    const [formData, setFormData] = useState({});
    const handleChange = (e) => {
@@ -30,6 +31,7 @@ export default function Signin() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
+
       console.log(data);
 
       if (data.success === false) {
@@ -37,6 +39,7 @@ export default function Signin() {
         return;
       }
       dispatch(signInSuccess(data));
+      navigate("/")
     } catch (error) {
       dispatch(signInFailure(error));
     }

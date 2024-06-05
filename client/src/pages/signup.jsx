@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 
 export default function Signup() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({});
   const handleChange = (e) => {
@@ -39,6 +40,7 @@ export default function Signup() {
         return;
       }
       dispatch(signInSuccess(data));
+      navigate("/signin");
     } catch (error) {
       dispatch(signInFailure(error));
     }
