@@ -8,6 +8,7 @@ import {
   signInSuccess,
 } from "../redux/user/userSlice";
 import { useDispatch } from "react-redux";
+import Navbar from "../components/navbar";
 
 export default function Signup() {
   const dispatch = useDispatch();
@@ -47,6 +48,8 @@ export default function Signup() {
   };
 
   return (
+    <div>
+      <Navbar/>
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full  sm:max-w-sm">
         <img
@@ -113,6 +116,7 @@ export default function Signup() {
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 }

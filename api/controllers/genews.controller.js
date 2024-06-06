@@ -112,6 +112,8 @@ export const saved= async(req,res)=>{
     });
     await savednews.save();
     
+    
+
     console.log("success");
   }catch(error){
     console.log(error);
@@ -120,6 +122,9 @@ export const saved= async(req,res)=>{
 
 
 
-// export const savedfetch=async(req,res)=>{
+ export const savedfetch=async(req,res)=>{
+  const {id}=req.body;
+  const dataUser = await Userpref.find({ userid: id });
+  res.send(JSON.stringify(dataUser));
 
-// }
+}
