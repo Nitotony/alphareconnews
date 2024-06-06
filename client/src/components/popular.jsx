@@ -89,7 +89,7 @@ const Popular = () => {
                         navigate("spec-news", { state: { data: newss } });
                       }}
                     >
-                      lol
+                      Read
                     </button>
                   </div>
                   <div className="comment flex items-center border-t border-gray-300 pt-2">

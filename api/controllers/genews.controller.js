@@ -1,3 +1,5 @@
+import Userpref from "../models/userpref.js";
+
 export const gennews= async (req,res,next)=>{
     console.log("frist boom");
     try{
@@ -97,3 +99,20 @@ export const specificnews = async (req, res, next) => {
 
 
 
+export const saved= async(req,res)=>{
+  const {id,description,title,image,link}=req.body;
+
+  try {
+    const savednews = Userpref({
+      userid: id,
+      title: title,
+      description: description,
+      image: image,
+      link:link,
+    });
+    await savednews.save();
+    console.log("success");
+  }catch(error){
+    console.log(error);
+  }
+}

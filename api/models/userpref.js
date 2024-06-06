@@ -7,12 +7,24 @@ const userprefSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    // newstracked:{// this contains the news tracked by the user
-    //     type:Array,
-    // },
-    savednews:{//this contains the id of the news saved by the user
-         type:Array,
+   
+    title:{
+      type:String,
+      required:true,
+      },
+    description:{
+      type:String,
+      required:true,
 
+    },
+    image:{
+      type:String,
+
+    },
+    
+    link:{
+      type:String,
+      required:true,
     }
   },
   { timestamps: true }

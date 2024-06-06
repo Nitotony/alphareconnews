@@ -1,5 +1,7 @@
 import User from "../models/usermodel.js";
+import Userpref from '../models/userpref.js';
 import bcryptjs from "bcryptjs";
+
 
 export const usersignup=async(req,res,next)=>{
     const {email,password}=req.body;
@@ -41,3 +43,14 @@ export const usersignin=async(req,res,next)=>{
 
 
 }
+
+
+// export const savenews=async(req,res)=>{
+//     const {title,description,url,urlToImage}=req.body;
+
+//     const saveNews = new Userpref({ userid:});
+
+
+
+
+// }

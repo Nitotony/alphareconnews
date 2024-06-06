@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import Navbar from "../components/navbar";
 
 const Technology = () => {
   const [newsData, setNewsData] = useState([]);
@@ -48,6 +49,7 @@ const Technology = () => {
 
   return (
     <div>
+      <Navbar/>
       <Heading />
 
       <div className="container mx-auto px-4">
@@ -80,7 +82,7 @@ const Technology = () => {
                           navigate("spec-news", { state: { data: newss } });
                         }}
                       >
-                        lol
+                        Read
                       </button>
                     </div>
                     <div className="comment flex items-center border-t border-gray-300 pt-2">

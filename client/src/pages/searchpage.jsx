@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import Navbar from "../components/navbar";
 
 export default function SearchPage() {
   const [formData, setFormData] = useState({});
@@ -53,26 +54,31 @@ export default function SearchPage() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4">
-        <div className="bg-red-700">
-          <form action="" className="mx-20">
-            <input
-              type="text"
-              className="m-2"
-              id="texted"
-              onChange={handleChange}
-              value={formData.texted}
-            />
-            <input
-              type="date"
-              className="m-2"
-              id="date"
-              onChange={handleChange}
-            />
-            <button onClick={getsearchedNewsData}>Search</button>
-          </form>
+      <div>
+        <Navbar/>
+        <div className="container mx-auto px-4">
+          <div className="bg-red-700">
+            <form action="" className="mx-20">
+              <input
+                type="text"
+                className="m-2"
+                id="texted"
+                onChange={handleChange}
+                value={formData.texted}
+              />
+              <input
+                type="date"
+                className="m-2"
+                id="date"
+                onChange={handleChange}
+              />
+              <button onClick={getsearchedNewsData}>Search</button>
+            </form>
+          </div>
+          <div className="flex justify-center">
+            <h1>search using keyword or date</h1>
+          </div>
         </div>
-        <h1>enter a serch item</h1>
       </div>
     );
   }
@@ -82,6 +88,9 @@ export default function SearchPage() {
   }
 
   return (
+    <div>
+      <Navbar/>
+    
     <div className="container mx-auto px-4">
       <div>
         <form className="bg-red-700">
@@ -130,7 +139,7 @@ export default function SearchPage() {
                         navigate("spec-news", { state: { data: news } });
                       }}
                     >
-                      lol
+                      Read
                     </button>
                   </div>
                   <div className="comment flex items-center border-t border-gray-300 pt-2">
@@ -143,6 +152,7 @@ export default function SearchPage() {
           ))}
         </div>
       </section>
+    </div>
     </div>
   );
 }
