@@ -5,7 +5,7 @@ const userprefSchema = new mongoose.Schema(
     userid: {// this is the id of the user this id is created by mogodb atlas for a document(client) from the client schema
       type: String,
       required: true,
-      unique: true,
+      
     },
    
     title:{

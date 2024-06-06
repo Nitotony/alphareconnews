@@ -111,8 +111,15 @@ export const saved= async(req,res)=>{
       link:link,
     });
     await savednews.save();
+    
     console.log("success");
   }catch(error){
     console.log(error);
   }
 }
+
+
+
+// export const savedfetch=async(req,res)=>{
+
+// }
