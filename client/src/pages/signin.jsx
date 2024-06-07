@@ -11,7 +11,7 @@ import Navbar from "../components/navbar";
 export default function Signin() {
   const dispatch=useDispatch();
   const navigate=useNavigate();
-
+   const [lerror,setlerror]=useState(false)
    const [formData, setFormData] = useState({});
    const handleChange = (e) => {
        console.log(formData);
@@ -37,11 +37,13 @@ export default function Signin() {
 
       if (data.success === false) {
         dispatch(signInFailure());
+        setlerror(true);
         return;
       }
       dispatch(signInSuccess(data));
       navigate("/")
     } catch (error) {
+      
       dispatch(signInFailure(error));
     }
     
@@ -50,7 +52,7 @@ export default function Signin() {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full  sm:max-w-sm">
           <img
@@ -114,6 +116,7 @@ export default function Signin() {
               >
                 Sign in
               </button>
+              {lerror&&<span className="text-red-600">wrong credentials</span>}
             </div>
           </form>
         </div>

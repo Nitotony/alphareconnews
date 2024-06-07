@@ -52,7 +52,7 @@ const Navbar = () => {
                 >
                   Login
                 </Link>
-                <Link to={'/'}>
+                {currentUser&&<Link to={'/'}>
                   <button
                     onClick={() => {
                       dispatch(signOut());
@@ -61,7 +61,7 @@ const Navbar = () => {
                   >
                     signout
                   </button>
-                </Link>
+                </Link>}
               </div>
             )}
           </div>
@@ -78,12 +78,13 @@ const Navbar = () => {
             Search
           </Link>
 
-          <Link
+         { currentUser&&<Link
             to={"/saved"}
             className="text-blue-500 text-xl font-medium  hover:text-red-500"
           >
             Saved
           </Link>
+}
         </div>
         <div className="flex items-center space-x-2">
           <div className="flex items-center">

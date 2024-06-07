@@ -38,15 +38,17 @@ export default function Newsland() {
       <div className="container my-2 mx-auto px-4 bg-slate-300">
         <h1 className="text-2xl font-bold">{state.data.title}</h1>
         <p>{state.data.description}</p>
-        <button
+        {currentUser&&<button
           onClick={handleClick}
           className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-4 rounded"
         >
           Save
-        </button>
+        </button>}
+        <a href={state.data.url}>
         <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-4 rounded">
           Link
         </button>
+        </a>
         <div className="flex justify-center">
           <img
             className="max-w-md mx-auto"
